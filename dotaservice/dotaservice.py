@@ -277,6 +277,10 @@ class DotaGame(object):
         # Supress stdout if the logger level is info.
         stdout = None if logger.level == 'INFO' else asyncio.subprocess.PIPE
 
+        # TODO, inspect this command and get it to work
+        ''' ['/root/Steam/steamapps/common/dota 2 beta/game/dota.sh', '-botworldstatesocket_threaded', '-botworldstatetosocket_frames', '15', '-botworldstatetosocket_radiant', '12120', '-botworldstatetosocket_dire', '12121', '-con_logfile', 'scripts/vscripts/bots/console.log', '-con_timestamp', '-console', '-dev', '-insecure', '-noip', '-nowatchdog', '+clientport', '27006', '+dota_1v1_skip_strategy', '1', '+dota_surrender_on_disconnect', '0', '+host_timescale', '10', '+hostname dotaservice', '+sv_cheats', '1', '+sv_hibernate_when_empty', '0', '+tv_delay', '0', '+tv_enable', '1', '+tv_title', '34819484-2b83-11ef-956f-0242ac110002', '+tv_autorecord', '1', '+tv_transmitall', '1', '-dedicated', '-fill_with_bots', '+map', 'start', 'gamemode', '21', '+sv_lan', '1']'''
+        logger.warning(f'{args}')
+
         create = asyncio.create_subprocess_exec(
             *args,
             stdin=asyncio.subprocess.PIPE, stdout=stdout, stderr=stdout,
